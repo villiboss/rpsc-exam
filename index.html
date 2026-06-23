@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RPSC 3rd Grade Exam Prep</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.2.0/dist/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:#f5f5f0;color:#1a1a18;min-height:100vh;padding:1.25rem}
+.app{max-width:700px;margin:0 auto}
+h1{font-size:20px;font-weight:500;margin-bottom:3px}
+.sub{font-size:12px;color:#666;margin-bottom:1.25rem}
+.pill{display:inline-flex;align-items:center;gap:3px;font-size:11px;padding:2px 8px;border-radius:20px;font-weight:500;margin-left:5px;vertical-align:middle}
+.pg{background:#e6f4ea;color:#1e6b3a}
+.pb{background:#e0e7ff;color:#3730a3}
+.pw{background:#fef3c7;color:#92400e}
+.pd{background:#fee2e2;color:#991b1b}
+.tabs{display:flex;gap:2px;border-bottom:1px solid #e0e0d8;margin-bottom:1.25rem}
+.tab{padding:8px 12px;font-size:13px;cursor:pointer;border:none;background:none;color:#666;border-bottom:2px solid transparent;margin-bottom:-1px;font-family:inherit}
+.tab.active{color:#1a1a18;border-bottom:2px solid #1a1a18;font-weight:500}
+.card{background:#fff;border:0.5px solid #e0e0d8;border-radius:12px;padding:1.25rem;margin-bottom:1rem}
+.st{font-size:11px;font-weight:500;color:#999;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.btn{padding:8px 14px;border-radius:8px;border:0.5px solid #ccc;background:#f5f5f0;color:#1a1a18;font-size:13px;cursor:pointer;font-family:inherit}
+.btn:hover{background:#eee}
+.btn-p{width:100%;padding:11px;font-size:15px;font-weight:500;cursor:pointer;border-radius:8px;border:none;background:#1a1a18;color:#fff;margin-top:.75rem;font-family:inherit}
+.btn-p:disabled{opacity:.5;cursor:not-allowed}
+.sp{display:inline-block;width:14px;height:14px;border:2px solid #ccc;border-top-color:#1a1a18;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:5px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.stat{background:#f5f5f0;border-radius:8px;padding:.875rem;text-align:center}
+.sval{font-size:20px;font-weight:500}
+.slbl{font-size:11px;color:#888;margin-top:2px}
+.tnum{font-size:24px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums}
+.timer-wrap{display:flex;align-items:center;gap:4px;padding:7px 12px;border-radius:8px;border:0.5px solid #e0e0d8;background:#fff}
+.tsep{font-size:20px;font-weight:500;color:#aaa;padding-bottom:6px}
+.tlbl{font-size:9px;color:#aaa;text-align:center}
+.prog-track{background:#e0e0d8;height:5px;border-radius:3px;overflow:hidden}
+.pfill{height:100%;border-radius:3px;transition:width .3s;background:#1a1a18}
+.tfill{height:100%;border-radius:3px;transition:width 1s linear;background:#1e6b3a}
+.tfill.warn{background:#92400e}
+.tfill.danger{background:#991b1b}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
+.opt{padding:8px 10px;border:0.5px solid #e0e0d8;border-radius:8px;font-size:13px;cursor:pointer;background:#fafaf8;color:#1a1a18;text-align:left;font-family:inherit}
+.opt:hover{border-color:#888;background:#f0f0ec}
+.opt.sel{border:1.5px solid #1a1a18;background:#fff;font-weight:500}
+.opt.rv-ok{background:#e6f4ea;color:#1e6b3a;border-color:#86efac}
+.opt.rv-ng{background:#fee2e2;color:#991b1b;border-color:#fca5a5}
+.badge{font-size:11px;padding:2px 7px;border-radius:20px;display:inline-block}
+.be{background:#e6f4ea;color:#1e6b3a}
+.bm{background:#fef3c7;color:#92400e}
+.bh{background:#fee2e2;color:#991b1b}
+.bi{background:#e0e7ff;color:#3730a3}
+.dot{width:24px;height:24px;border-radius:4px;font-size:10px;font-weight:500;cursor:pointer;border:0.5px solid #ccc;background:#f5f5f0;color:#888;display:inline-flex;align-items:center;justify-content:center;margin:2px}
+.dot.sel{background:#e0e7ff;color:#3730a3;border-color:#a5b4fc}
+.dot.cur{border:2px solid #1a1a18}
+.dot.rv-ok{background:#e6f4ea;color:#1e6b3a;border-color:#86efac}
+.dot.rv-ng{background:#fee2e2;color:#991b1b;border-color:#fca5a5}
+.lb-row{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;margin-bottom:5px;border:0.5px solid #e0e0d8}
+.lb-row.me{border:1.5px solid #a5b4fc;background:#e0e7ff30}
+.info-box{display:flex;gap:8px;padding:9px 12px;background:#eff6ff;border-radius:8px;font-size:13px;color:#1e40af;line-height:1.5;margin-bottom:.875rem}
+.neg-box{display:flex;gap:8px;padding:9px 12px;background:#fee2e2;border-radius:8px;font-size:13px;color:#991b1b;line-height:1.5;margin-bottom:.875rem}
+.warn-box{display:flex;gap:8px;padding:9px 12px;background:#fef3c7;border-radius:8px;font-size:13px;color:#92400e;line-height:1.5;margin-bottom:.875rem}
+.paper-btn{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border:0.5px solid #e0e0d8;border-radius:8px;margin-bottom:8px;cursor:pointer;background:#fff;transition:border-color .15s}
+.paper-btn:hover{border-color:#888}
+.paper-btn.selected{border:2px solid #3730a3;background:#e0e7ff20}
+.subj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:8px}
+.subj-btn{padding:10px 12px;border:0.5px solid #e0e0d8;border-radius:8px;cursor:pointer;background:#fff;text-align:left;font-family:inherit;transition:border-color .15s}
+.subj-btn:hover{border-color:#888}
+.subj-btn.selected{border:2px solid #3730a3;background:#e0e7ff20}
+.sec-div{display:flex;align-items:center;gap:8px;margin:10px 0 6px;font-size:10px;font-weight:500;color:#888;text-transform:uppercase;letter-spacing:.05em}
+.sec-div::before,.sec-div::after{content:'';flex:1;height:0.5px;background:#e0e0d8}
+.sb-row{display:flex;justify-content:space-between;font-size:13px;padding:3px 0}
+.chunk{display:flex;justify-content:space-between;padding:7px 10px;background:#f5f5f0;border-radius:8px;margin-bottom:5px;font-size:13px;color:#666}
+.chunk.done{color:#1e6b3a;background:#e6f4ea}
+.chunk.fail{color:#991b1b;background:#fee2e2}
+textarea{width:100%;min-height:80px;font-size:13px;padding:10px;border-radius:8px;border:0.5px solid #ccc;background:#fafaf8;color:#1a1a18;resize:vertical;line-height:1.6;font-family:inherit}
+select,input[type=text],input[type=password]{padding:8px 10px;border:0.5px solid #ccc;border-radius:8px;font-size:14px;background:#fff;font-family:inherit;width:100%}
+</style>
+</head>
+<body>
+<div class="app">
+<h1><i class="ti ti-certificate" style="font-size:18px;vertical-align:-2px;margin-right:6px"></i>RPSC 3rd Grade Prep
+  <span class="pill pd"><i class="ti ti-minus" style="font-size:11px"></i>−⅓</span>
+  <span class="pill pg"><i class="ti ti-trophy" style="font-size:11px"></i>Live</span>
+</h1>
+<p class="sub">Paper I (100 Qs · 2 hrs) · Paper II — Hindi / SST / Science / Maths & Science (150 Qs · 2.5 hrs) · Competition-level difficulty</p>
+
+<div id="loginScreen">
+  <div class="card">
+    <div class="st">Join or sign in</div>
+    <div style="margin-bottom:.75rem"><label style="font-size:12px;color:#666;display:block;margin-bottom:5px">Your name</label><input type="text" id="loginName" placeholder="Full name" maxlength="30"></div>
+    <div style="margin-bottom:.75rem"><label style="font-size:12px;color:#666;display:block;margin-bottom:5px">City / District</label><input type="text" id="loginCity" placeholder="e.g. Jaipur, Kota..."></div>
+    <div style="margin-bottom:.5rem"><label style="font-size:12px;color:#666;display:block;margin-bottom:5px">Role</label>
+      <select id="loginRole" onchange="document.getElementById('apf').style.display=this.value==='admin'?'block':'none'">
+        <option value="member">Member (take tests)</option>
+        <option value="admin">Admin (manage questions)</option>
+      </select>
+    </div>
+    <div id="apf" style="display:none;margin-top:.75rem"><label style="font-size:12px;color:#666;display:block;margin-bottom:5px">Admin password</label><input type="password" id="adminPass" placeholder="Enter password"></div>
+    <button class="btn-p" onclick="doLogin()">Enter ↗</button>
+    <p style="font-size:11px;color:#999;margin-top:8px;text-align:center">Admin password: <code>rpsc2025</code></p>
+  </div>
+</div>
+
+<div id="mainApp" style="display:none">
+  <div class="tabs">
+    <button class="tab active" id="tb-home" onclick="switchTab('home')"><i class="ti ti-layout-grid" style="font-size:12px;vertical-align:-1px;margin-right:2px"></i>Papers</button>
+    <button class="tab" id="tb-test" onclick="switchTab('test')"><i class="ti ti-pencil" style="font-size:12px;vertical-align:-1px;margin-right:2px"></i>Exam</button>
+    <button class="tab" id="tb-rank" onclick="switchTab('rank');loadLeaderboard()"><i class="ti ti-trophy" style="font-size:12px;vertical-align:-1px;margin-right:2px"></i>Rankings</button>
+    <button class="tab" id="tb-my" onclick="switchTab('my');renderMyTab()"><i class="ti ti-user" style="font-size:12px;vertical-align:-1px;margin-right:2px"></i>My scores</button>
+    <button class="tab" id="tb-admin" style="display:none" onclick="switchTab('admin')"><i class="ti ti-settings" style="font-size:12px;vertical-align:-1px;margin-right:2px"></i>Admin</button>
+  </div>
+
+  <div id="tab-home">
+    <div class="st">Select paper</div>
+    <div class="paper-btn" id="pb-p1" onclick="selectPaper('p1')">
+      <div><div style="font-size:14px;font-weight:500">📋 Paper I — General</div><div style="font-size:12px;color:#666;margin-top:2px">Raj. GK 40 · Hindi 15 · English 10 · Maths 20 · Science 15</div></div>
+      <span class="pill pb">100 Qs · 2 hrs</span>
+    </div>
+    <div style="font-size:12px;font-weight:500;color:#666;margin:12px 0 8px">Paper II — Choose your specialization</div>
+    <div class="subj-grid">
+      <div class="subj-btn" id="pb-p2_hindi" onclick="selectPaper('p2_hindi')"><div style="font-size:14px;font-weight:500">📚 Hindi</div><div style="font-size:11px;color:#666;margin-top:3px">Raj. GK 40 + Hindi 110</div></div>
+      <div class="subj-btn" id="pb-p2_sst" onclick="selectPaper('p2_sst')"><div style="font-size:14px;font-weight:500">🗺️ Social Studies</div><div style="font-size:11px;color:#666;margin-top:3px">Raj. GK 40 + SST 110</div></div>
+      <div class="subj-btn" id="pb-p2_science" onclick="selectPaper('p2_science')"><div style="font-size:14px;font-weight:500">🔬 Science</div><div style="font-size:11px;color:#666;margin-top:3px">Raj. GK 40 + Science 110</div></div>
+      <div class="subj-btn" id="pb-p2_mathsci" onclick="selectPaper('p2_mathsci')"><div style="font-size:14px;font-weight:500">🔢 Maths & Science</div><div style="font-size:11px;color:#666;margin-top:3px">Raj. GK 40 + Maths 55 + Sci 55</div></div>
+    </div>
+    <div id="startSection" style="display:none;margin-top:4px">
+      <div class="neg-box"><i class="ti ti-alert-circle" style="font-size:15px;flex-shrink:0;margin-top:1px"></i><span><strong>+1 correct · −⅓ wrong · 0 skipped.</strong> Harder than real RPSC exam. Answers shown only after submit.</span></div>
+      <div id="bankStatus" class="info-box"><i class="ti ti-info-circle" style="font-size:14px;flex-shrink:0;margin-top:1px"></i><span id="bankStatusMsg">Checking bank...</span></div>
+      <button class="btn-p" id="startBtn" onclick="startExam()" disabled>▶ Start exam ↗</button>
+    </div>
+  </div>
+
+  <div id="tab-test" style="display:none">
+    <div id="testActive" style="display:none">
+      <div class="card" style="padding:12px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px">
+          <div><div id="examPaperLabel" style="font-size:11px;color:#666">RPSC 3rd Grade</div><div id="answeredLabel" style="font-size:13px;font-weight:500;margin-top:2px">0 / 0 answered</div></div>
+          <div class="timer-wrap">
+            <div><div class="tnum" id="tH">02</div><div class="tlbl">hrs</div></div>
+            <div class="tsep">:</div>
+            <div><div class="tnum" id="tM">00</div><div class="tlbl">min</div></div>
+            <div class="tsep">:</div>
+            <div><div class="tnum" id="tS">00</div><div class="tlbl">sec</div></div>
+          </div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center">
+          <span style="font-size:10px;color:#999;width:26px">Time</span>
+          <div class="prog-track" style="flex:1"><div class="tfill" id="timeFill" style="width:100%"></div></div>
+          <span style="font-size:10px;color:#999;width:32px;text-align:right">Done</span>
+          <div class="prog-track" style="flex:1"><div class="pfill" id="progFill" style="width:0%"></div></div>
+        </div>
+      </div>
+      <div id="sectionLabel"></div>
+      <div id="ansNav" style="display:flex;flex-wrap:wrap;gap:3px;margin-bottom:1rem"></div>
+      <div id="currentQ"></div>
+      <div style="display:flex;gap:8px;margin-top:1rem">
+        <button class="btn" onclick="prevQ()">← Prev</button>
+        <button class="btn" style="flex:1" onclick="nextQ()">Next →</button>
+        <button class="btn-p" style="width:auto;padding:9px 16px;margin-top:0;flex:1" onclick="confirmSubmit()">Submit ↗</button>
+      </div>
+      <p style="font-size:11px;color:#999;text-align:center;margin-top:8px">Answers hidden until submit · Auto-submits at 0:00:00</p>
+    </div>
+
+    <div id="testResult" style="display:none">
+      <div id="resultBanner" style="border-radius:12px;padding:1.5rem;text-align:center;margin-bottom:1rem">
+        <div id="resultPaperLabel" style="font-size:13px;font-weight:500;margin-bottom:4px">—</div>
+        <div id="resultScore" style="font-size:40px;font-weight:500">—</div>
+        <div id="resultLabel" style="font-size:14px;margin-top:4px">—</div>
+        <div id="resultTimeLbl" style="font-size:12px;margin-top:3px;opacity:.8">—</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem">
+        <div style="border:0.5px solid #e0e0d8;border-radius:8px;padding:10px 12px">
+          <div class="st">Score breakdown</div>
+          <div class="sb-row"><span style="color:#666">Correct (+1)</span><span id="sbC" style="color:#1e6b3a;font-weight:500">—</span></div>
+          <div class="sb-row"><span style="color:#666">Wrong (−⅓)</span><span id="sbW" style="color:#991b1b;font-weight:500">—</span></div>
+          <div class="sb-row"><span style="color:#666">Skipped (0)</span><span id="sbSk" style="font-weight:500">—</span></div>
+          <div style="border-top:0.5px solid #e0e0d8;margin-top:5px;padding-top:5px" class="sb-row"><span style="font-weight:500">Final marks</span><span id="sbF" style="font-weight:500">—</span></div>
+        </div>
+        <div style="border:0.5px solid #e0e0d8;border-radius:8px;padding:10px 12px">
+          <div class="st">Section-wise</div>
+          <div id="sectionBreak"></div>
+        </div>
+      </div>
+      <div id="uploadStatus" class="info-box"><i class="ti ti-upload" style="font-size:14px;flex-shrink:0"></i><span id="uploadMsg">Uploading...</span></div>
+      <div style="display:flex;gap:8px;margin-bottom:8px">
+        <button class="btn" style="flex:1" onclick="switchTab('rank');loadLeaderboard()">🏆 Rankings</button>
+        <button class="btn-p" style="margin-top:0;flex:1" onclick="startReview()">👁 Review ↗</button>
+      </div>
+      <button class="btn" style="width:100%" onclick="switchTab('home')">← Back to papers</button>
+    </div>
+
+    <div id="reviewMode" style="display:none">
+      <div class="card" style="padding:12px;margin-bottom:1rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div style="font-size:13px;font-weight:500">Answer review</div>
+          <button class="btn" style="padding:5px 10px;font-size:12px" onclick="exitReview()">✕ Close</button>
+        </div>
+        <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px">
+          <button class="btn" id="rf-all" style="font-size:12px;padding:4px 10px" onclick="setFilter('all')">All</button>
+          <button class="btn" id="rf-ok" style="font-size:12px;padding:4px 10px" onclick="setFilter('ok')">✓ Correct</button>
+          <button class="btn" id="rf-ng" style="font-size:12px;padding:4px 10px" onclick="setFilter('ng')">✗ Wrong</button>
+          <button class="btn" id="rf-sk" style="font-size:12px;padding:4px 10px" onclick="setFilter('sk')">Skipped</button>
+        </div>
+        <div id="reviewNav" style="display:flex;flex-wrap:wrap;gap:3px"></div>
+      </div>
+      <div id="reviewQ"></div>
+      <div style="display:flex;gap:8px;margin-top:1rem">
+        <button class="btn" onclick="prevReview()">← Prev</button>
+        <button class="btn" style="flex:1" onclick="nextReview()">Next →</button>
+      </div>
+    </div>
+
+    <div id="testEmpty" style="text-align:center;padding:2.5rem">
+      <div style="font-size:36px;margin-bottom:8px">✏️</div>
+      <p style="font-size:14px;color:#666">Select a paper from the Papers tab to begin.</p>
+      <button class="btn" style="margin-top:12px" onclick="switchTab('home')">Choose paper ↗</button>
+    </div>
+  </div>
+
+  <div id="tab-rank" style="display:none">
+    <div class="card" style="padding:1rem">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <div class="st" style="margin:0">Live leaderboard</div>
+        <div style="display:flex;gap:6px;align-items:center">
+          <select id="lbFilter" style="font-size:12px;padding:4px 8px;width:auto" onchange="loadLeaderboard()">
+            <option value="all">All papers</option>
+            <option value="p1">Paper I</option>
+            <option value="p2_hindi">P-II Hindi</option>
+            <option value="p2_sst">P-II SST</option>
+            <option value="p2_science">P-II Science</option>
+            <option value="p2_mathsci">P-II Maths & Sci</option>
+          </select>
+          <button class="btn" style="padding:5px 10px;font-size:12px" onclick="loadLeaderboard()">↻</button>
+        </div>
+      </div>
+      <div id="lbLoading" style="text-align:center;padding:1.5rem;font-size:14px;color:#666"><span class="sp"></span>Loading...</div>
+      <div id="lbList"></div>
+    </div>
+  </div>
+
+  <div id="tab-my" style="display:none">
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem">
+        <div id="myAvatar" style="width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;flex-shrink:0"></div>
+        <div><div id="myNameDisp" style="font-size:16px;font-weight:500"></div><div id="myCityDisp" style="font-size:13px;color:#666"></div></div>
+        <button class="btn" style="margin-left:auto;padding:5px 10px;font-size:12px" onclick="doLogout()">↩ Switch</button>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px" id="myStats"></div>
+    </div>
+    <div class="card"><div class="st">Score history</div><div id="myHistory"></div></div>
+  </div>
+
+  <div id="tab-admin" style="display:none">
+    <div class="card">
+      <div class="st">Generate questions</div>
+      <div class="info-box"><i class="ti ti-info-circle" style="font-size:15px;flex-shrink:0;margin-top:1px"></i><span>Select a paper, optionally upload notes, and generate. AI creates section-wise questions following RPSC 3rd Grade pattern — harder than real exam for competition prep.</span></div>
+      <div style="margin-bottom:.75rem"><label style="font-size:12px;color:#666;display:block;margin-bottom:5px">Select paper</label>
+        <select id="genPaper" style="width:100%">
+          <option value="p1">Paper I — GK + Hindi + English + Maths + Science (100 Qs)</option>
+          <option value="p2_hindi">Paper II — Hindi specialization (150 Qs)</option>
+          <option value="p2_sst">Paper II — Social Studies specialization (150 Qs)</option>
+          <option value="p2_science">Paper II — Science specialization (150 Qs)</option>
+          <option value="p2_mathsci">Paper II — Maths & Science specialization (150 Qs)</option>
+        </select>
+      </div>
+      <div style="margin-bottom:.75rem"><label style="font-size:12px;color:#666;display:block;margin-bottom:5px">Upload notes (optional)</label><input type="file" id="syllabusFile" accept=".pdf,.txt" style="font-size:13px;border:none;padding:0;background:none"></div>
+      <div style="margin-bottom:.75rem"><label style="font-size:12px;color:#666;display:block;margin-bottom:5px">Or paste notes</label><textarea id="syllabusText" placeholder="Paste any study material to focus questions on..."></textarea></div>
+      <div id="genProgress" style="display:none;margin-top:.75rem"></div>
+      <button class="btn-p" id="generateBtn" onclick="adminGenerate()">✦ Generate & publish ↗</button>
+    </div>
+    <div class="card">
+      <div class="st">Question bank status</div>
+      <div id="adminBankStatus" style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px"></div>
+    </div>
+    <div class="card">
+      <div class="st">Danger zone</div>
+      <div style="display:flex;gap:8px">
+        <button class="btn" style="flex:1;color:#991b1b;border-color:#fca5a5" onclick="clearScores()">🗑 Clear scores</button>
+        <button class="btn" style="flex:1;color:#991b1b;border-color:#fca5a5" onclick="clearBank()">🗄 Clear bank</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+const NEG=1/3;
+const COLORS=['#1D9E75','#378ADD','#D85A30','#7F77DD','#BA7517','#D4537E'];
+const pad=n=>String(n).padStart(2,'0');
+const initials=n=>n.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
+const getColor=n=>{let h=0;for(const c of n)h=(h*31+c.charCodeAt(0))%COLORS.length;return COLORS[h]};
+
+const PAPERS={
+  p1:{label:'Paper I — General',shortLabel:'Paper I',totalQ:100,timeSec:7200,emoji:'📋',
+    sections:[
+      {key:'gk',label:'Rajasthan GK',count:40,topics:['History of Rajasthan (major dynasties, battles, rulers, monuments)','Geography of Rajasthan (rivers, lakes, mountains, Thar Desert, districts, wildlife)','Polity & Administration (Panchayati Raj Act, State Legislature, Governor, CM)','Economy (agriculture crops, minerals, handicrafts, industries, tourism)','Art & Culture (folk music, dance, paintings, festivals, costumes, fairs)','Current Affairs Rajasthan (govt schemes, awards, recent events 2023-24)','Rajasthan GK miscellaneous (famous personalities, sports, education)']},
+      {key:'hindi',label:'Hindi',count:15,topics:['Sandhi (Swar, Vyanjan, Visarg) & Samas (6 types with examples)','Karak (8 types) & Vibhakti','Muhavare & Lokokti (meaning & usage)','Ras (9 types), Chhand (Doha, Chaupai, Savaiya), Alankar (Shabdalankar, Arthalankar)','Hindi Grammar — Tense, Voice (Karthavachya/Karmavachya), Narration','Hindi Literature — Aadikal, Bhaktikal, Ritikal, Adhunikal poets & works','Unseen passage comprehension & vocabulary']},
+      {key:'english',label:'English',count:10,topics:['Tenses (all 12), Active/Passive Voice, Direct/Indirect Speech','Articles, Prepositions, Conjunctions, Modals','Synonyms, Antonyms, One-word substitution, Idioms & phrases','Error detection & sentence correction','Reading comprehension passage']},
+      {key:'math',label:'Mathematics',count:20,topics:['Number System, LCM & HCF (application problems)','Percentage, Profit & Loss, Discount','Ratio & Proportion, Partnership','Simple & Compound Interest','Algebra — Linear equations, Polynomials','Geometry — Angles, Triangles, Quadrilaterals, Circles (theorems)','Mensuration — Area, Perimeter, Volume of 3D shapes','Time Speed Distance, Time & Work','Average, Problems on Ages','Data Interpretation — Tables, Bar graphs, Pie charts']},
+      {key:'science',label:'Science',count:15,topics:['Physics — Motion, Force, Work & Energy, Light (reflection/refraction), Sound, Electricity & Magnetism','Chemistry — Matter (states, changes), Acids/Bases/Salts, Metals & Non-metals, Carbon compounds','Biology — Cell structure, Tissues, Nutrition, Respiration, Excretion, Reproduction','Human Body — Organ systems, Diseases & Prevention, Nutrition deficiency disorders','Environment — Ecosystem, Food chain, Natural resources, Pollution, Conservation']}
+    ]},
+  p2_hindi:{label:'Paper II — Hindi',shortLabel:'P-II Hindi',totalQ:150,timeSec:9000,emoji:'📚',
+    sections:[
+      {key:'gk',label:'Rajasthan GK',count:40,topics:['History of Rajasthan (dynasties, battles, freedom movement, princely states)','Geography of Rajasthan (physical divisions, rivers, lakes, climate, soil, forests, districts)','Polity (Panchayati Raj Act 1994, State Legislature, High Court, Governor, State services)','Economy (agriculture, horticulture, minerals, MSME, tourism, govt schemes)','Art & Culture (folk art, paintings — Miniature, Phad; folk music, festivals, fairs, handicrafts)','Current Affairs Rajasthan (Indira Gandhi Urban Employment Scheme, Chiranjeevi, recent events)','Education & Sports — Rajasthan achievements, universities, sports personalities']},
+      {key:'hindi',label:'Hindi Language & Pedagogy',count:110,topics:['Vyakaran — Sandhi (all types with rules), Samas (all 6 types)','Karak (all 8), Vibhakti, Vachya (Voice), Kaal (Tense) — all 3 main types','Ras (all 9 types + Sthayi Bhav), Chhand (Doha, Chaupai, Savaiya, Harigeetika), Alankar (10+ types)','Muhavare & Lokokti — meaning, usage, sentence formation','Paryayvachi (synonyms), Vilom (antonyms), Anekarthi Shabd, Shudh-Ashudh Shabd','Hindi Sahitya — Aadikal (Chand Bardai, Vidyapati), Bhaktikal (Kabir, Tulsidas, Surdas, Mirabai), Ritikal (Bihari, Keshavdas)','Modern Hindi — Chhayavad (Prasad, Nirala, Pant, Mahadevi), Pragativad, Prayogvad','Prose writers — Premchand, Hazari Prasad Dwivedi, Ramchandra Shukla','Unseen prose and poetry passages with questions','Bhasha Vigyan (Linguistics) — nature of language, dialects of Rajasthan (Mewari, Marwari, Hadoti)','Language Acquisition — Chomsky (LAD), Vygotsky (ZPD), Piaget stages applied to Hindi','Methods of Hindi Teaching — Grammar-Translation, Direct Method, Communicative Approach','Teaching of four skills — Shravana (listening), Bolna (speaking), Padhna (reading), Likhna (writing)','Pathyakram (Curriculum) in Hindi — NCF 2005 recommendations for language teaching','Error Analysis in Hindi — common errors of L2 learners, remediation strategies','Assessment & Evaluation in Hindi — formative, summative, portfolio assessment','Challenges in Hindi teaching in multilingual & multilevel classrooms in Rajasthan']}
+    ]},
+  p2_sst:{label:'Paper II — Social Studies',shortLabel:'P-II SST',totalQ:150,timeSec:9000,emoji:'🗺️',
+    sections:[
+      {key:'gk',label:'Rajasthan GK',count:40,topics:['History of Rajasthan — Prithviraj Chauhan, Rana Pratap, Maharana Kumbha, Maratha relations','Geography of Rajasthan — Aravalli, Thar Desert, Chambal & Banas rivers, Eastern plains','Polity — Panchayati Raj Act 1994, Zila Parishad, Gram Panchayat, State Election Commission','Economy — MGNREGA in Rajasthan, handloom, gems & jewellery exports, water conservation','Art & Culture — Ghoomar, Kalbelia, Bhavai, Kathputli, Teej, Gangaur festivals','Current Affairs — Chief Minister schemes, Smart Cities, REET/RPSC news','Rajasthan History of Freedom Movement — Bijolia Movement, Jodhpur, Barmer Congress sessions']},
+      {key:'sst',label:'Social Studies (Class 6–8 + Pedagogy)',count:110,topics:['Ancient India — Indus Valley (Harappa, Mohenjo-daro, seals, trade), Vedic Period, Mahajanapadas','Ancient India — Maurya Empire (Ashoka, Dhamma), Gupta Empire (golden age), Sangam Age','Medieval India — Delhi Sultanate (all 5 dynasties, key rulers), Mughal Empire (Babur to Aurangzeb)','Medieval India — Bhakti Movement (Kabir, Tulsidas, Mirabai), Sufism, regional kingdoms','Modern India — British expansion (Subsidiary Alliance, Doctrine of Lapse), 1857 Revolt','Modern India — Indian National Congress, Non-Cooperation, Civil Disobedience, Quit India Movement','Modern India — Partition, Constitution making, Nehru era policies','Indian Constitution — Preamble, Fundamental Rights (Articles 12-35), DPSP (Art 36-51), Fundamental Duties','Indian Polity — Parliament (Lok Sabha, Rajya Sabha, functions), President, Prime Minister, Supreme Court','Governance — Federalism, Local self-government, Panchayati Raj (73rd & 74th Amendment)','Physical Geography India — Himalayas (ranges, peaks, rivers), Northern Plains, Peninsular Plateau, Coastal Plains','Physical Geography India — Climate (monsoon mechanism, types), Natural Vegetation & Wildlife, Soil types','Economic Geography India — Agriculture (crops, seasons, Green Revolution), Irrigation (types, major projects)','Economic Geography India — Industries (cotton, iron & steel, IT), Minerals, Transport, Trade','World Geography — Major continents & oceans, Important countries & capitals, World climate zones','Economics — Money & Banking, Market (types), Globalisation & its effects on India, Consumer rights','Social Issues — Gender inequality, Child labour, Untouchability & discrimination, Tribal issues','Social & Political Life — Democracy at work, Media & democracy, Understanding advertising','Pedagogy of SST — Nature of Social Science, Constructivist approach, Concept mapping, Sources','SST Teaching Methods — Inquiry method, Project method, Field visits, Role play, Timeline creation','Critical & creative thinking in SST, Handling controversial issues in classroom','Assessment in SST — continuous comprehensive evaluation, portfolio, rubrics','Challenges in SST teaching — abstraction, multiple perspectives, stereotypes & bias in textbooks']}
+    ]},
+  p2_science:{label:'Paper II — Science',shortLabel:'P-II Science',totalQ:150,timeSec:9000,emoji:'🔬',
+    sections:[
+      {key:'gk',label:'Rajasthan GK',count:40,topics:['History — Mewar, Marwar, Amber kingdoms, major battles','Geography — Aravalli Hills, Desert National Park, Ranthambore, Keoladeo','Polity — Rajasthan Legislative Assembly, Governor powers, Rajasthan Lok Seva Aayog','Economy — Marble industry, cement, gypsum, zinc mines (Zawar), solar energy parks','Art & Culture — Blue pottery (Jaipur), Thewa art, Molela terracotta, Dastkar','Science & Tech — ISRO facilities, IIT Jodhpur, AIIMS Jodhpur in Rajasthan','Current Affairs — Rajasthan Budget 2024, REET, sports events, state awards']},
+      {key:'science',label:'Science (Class 6–8 + Pedagogy)',count:110,topics:['Physics — Motion: types, distance vs displacement, speed, velocity, acceleration, uniform/non-uniform','Physics — Force: types (contact, non-contact), Newton\'s laws of motion, friction (types, advantages/disadvantages)','Physics — Pressure: definition, liquid pressure, atmospheric pressure, buoyancy, Archimedes principle','Physics — Light: reflection (laws, plane & spherical mirrors), refraction (laws, lenses, rainbow, dispersion)','Physics — Sound: production, propagation, characteristics (pitch, loudness, quality), echo, ultrasound applications','Physics — Electricity: circuit components, Ohm\'s law, series & parallel circuits, heating effect, magnetic effect','Physics — Energy: forms, transformation, conservation, renewable vs non-renewable sources','Chemistry — Matter: states & properties, evaporation, melting, boiling, sublimation','Chemistry — Substances: elements, compounds, mixtures; methods of separation (filtration, distillation, chromatography)','Chemistry — Acids, Bases, Salts: pH scale, indicators, neutralisation, everyday examples','Chemistry — Chemical Reactions: types, oxidation-reduction, corrosion, rancidity, exothermic/endothermic','Chemistry — Metals & Non-metals: properties, reactivity series, alloys, uses','Chemistry — Carbon compounds: organic vs inorganic, hydrocarbons, soaps & detergents','Biology — Cell: prokaryotic vs eukaryotic, plant vs animal cell, organelles & functions','Biology — Tissues: plant tissues (meristematic, permanent), animal tissues (epithelial, connective, muscular, nervous)','Biology — Life Processes: nutrition (autotrophic/heterotrophic, photosynthesis mechanism), respiration (aerobic/anaerobic)','Biology — Life Processes: transportation (blood, heart, xylem, phloem), excretion (kidney, nephron)','Biology — Reproduction: asexual (binary fission, budding, vegetative, spore formation), sexual reproduction','Biology — Microorganisms: bacteria, virus, fungi, protozoa — useful & harmful, antibiotics, vaccines','Biology — Health & Disease: communicable vs non-communicable, deficiency diseases, immune system','Biology — Ecosystem: biotic & abiotic components, food chain, food web, energy flow, trophic levels','Biology — Conservation: biodiversity, endangered species, National Parks, Project Tiger, pollution & its effects','Science Pedagogy — Nature of Science: tentative, empirical, theory vs law, scientific method steps','Science Pedagogy — Constructivist approach (Piaget, Vygotsky applied to Science), inquiry-based learning','Science Pedagogy — Laboratory & experimentation: safety, observation, hypothesis, conclusion','Science Pedagogy — Common misconceptions in Science (e.g., heavier objects fall faster) & remediation','Science Pedagogy — Integration across subjects, Science & Technology & Society (STS approach)','Assessment in Science — practical assessment, process skills, concept mapping, peer assessment','Challenges in Science teaching — abstract concepts, math anxiety in Science, lack of lab facilities']}
+    ]},
+  p2_mathsci:{label:'Paper II — Maths & Science',shortLabel:'P-II M&S',totalQ:150,timeSec:9000,emoji:'🔢',
+    sections:[
+      {key:'gk',label:'Rajasthan GK',count:40,topics:['History of Rajasthan — key rulers, monuments, battles','Geography — physical features, rivers, climate, minerals, forests','Polity — Panchayati Raj Act 1994, State government structure','Economy — agriculture, industries, tourism, govt flagship schemes','Art & Culture — folk art, music, dance, festivals of Rajasthan','Science & Technology achievements in Rajasthan','Current Affairs — latest state news, schemes, awards 2023-24']},
+      {key:'math',label:'Mathematics (Class 6–8 + Pedagogy)',count:55,topics:['Number System — integers, rational numbers, comparison, representation on number line','Fractions & Decimals — operations, word problems, conversion','Powers & Exponents — laws of exponents, squares, cubes, square roots, cube roots','Algebra — algebraic expressions, identities [(a+b)², (a-b)², (a+b)(a-b)], linear equations in 1 & 2 variables','Ratio & Proportion — direct & inverse proportion, unitary method, percentage applications','Geometry — basic concepts, angles (types, pairs), triangles (properties, congruence, similarity), quadrilaterals','Geometry — Circle (chord, arc, sector, tangent), construction using compass & ruler','Mensuration — perimeter & area of 2D shapes, surface area & volume of cube, cuboid, cylinder, cone, sphere','Data Handling — mean, median, mode, range, bar graph, pie chart, probability basics','Playing with Numbers — divisibility rules, prime factorisation, HCF & LCM (word problems)','Math Pedagogy — nature of Mathematics, Mathematization (Pólya), language of Mathematics','Math Pedagogy — Error analysis (conceptual, procedural, careless errors) & remediation strategies','Constructivist approach in Maths — manipulatives, concrete to abstract, Van Hiele levels for geometry','Problem solving approach — Pólya\'s 4 steps, open-ended problems, mathematical reasoning','Assessment in Mathematics — diagnostic tests, formative assessment, concept mapping, math journals']},
+      {key:'science',label:'Science (Class 6–8 + Pedagogy)',count:55,topics:['Physics — Motion, Force (Newton\'s laws), Friction, Pressure, Light (mirrors & lenses), Sound, Electricity & Magnetism','Chemistry — Matter (states), Separation methods, Acids/Bases/Salts, Metals/Non-metals, Carbon compounds','Biology — Cell structure, Life Processes (nutrition, respiration, transport, excretion), Reproduction, Microorganisms','Biology — Health & Disease, Ecosystem (food chain, conservation), Biodiversity, Pollution','Science Pedagogy — inquiry-based learning, scientific method, constructivism, common misconceptions','Assessment in Science — process skills, practical work, concept maps, CCE in Science']}
+    ]}
+};
+
+let profile=null,currentQs=[],qIdx=0,answers={},myScores=[];
+let timerInt=null,secsLeft=0,examActive=false;
+let reviewIdx=0,reviewFilter='all',filteredIdxs=[];
+let selectedPaperId=null,currentPaper=null;
+
+function doLogin(){
+  const name=document.getElementById('loginName').value.trim();
+  const city=document.getElementById('loginCity').value.trim()||'India';
+  const role=document.getElementById('loginRole').value;
+  if(!name){alert('Enter your name');return;}
+  if(role==='admin'&&document.getElementById('adminPass').value!=='rpsc2025'){alert('Wrong password');return;}
+  profile={name,city,role};
+  document.getElementById('loginScreen').style.display='none';
+  document.getElementById('mainApp').style.display='block';
+  if(role==='admin'){document.getElementById('tb-admin').style.display='inline-block';loadAdminStatus();}
+}
+function doLogout(){if(examActive&&!confirm('Exam in progress. Quit?'))return;clearInterval(timerInt);examActive=false;profile=null;currentQs=[];answers={};myScores=[];selectedPaperId=null;document.getElementById('loginScreen').style.display='block';document.getElementById('mainApp').style.display='none';document.getElementById('tb-admin').style.display='none';}
+
+function switchTab(t){
+  ['home','test','rank','my','admin'].forEach(n=>{
+    document.getElementById('tb-'+n)?.classList.toggle('active',n===t);
+    const el=document.getElementById('tab-'+n);if(el)el.style.display=n===t?'block':'none';
+  });
+}
+
+function selectPaper(pid){
+  selectedPaperId=pid;currentPaper=PAPERS[pid];
+  document.querySelectorAll('.paper-btn,.subj-btn').forEach(el=>el.classList.remove('selected'));
+  document.getElementById('pb-'+pid)?.classList.add('selected');
+  document.getElementById('startSection').style.display='block';
+  checkBankForPaper(pid);
+}
+
+async function checkBankForPaper(pid){
+  const msg=document.getElementById('bankStatusMsg'),btn=document.getElementById('startBtn');
+  btn.disabled=true;msg.textContent='Checking question bank...';
+  try{
+    const r=await window.storage.get('rpsc_bank_'+pid,true);
+    if(r){const b=JSON.parse(r.value);msg.textContent=`${(b.questions||[]).length} questions ready · Generated ${b.date||'recently'} · Click start when ready`;btn.disabled=false;}
+    else msg.textContent='No questions yet. Admin needs to generate questions first.';
+  }catch(e){msg.textContent='Could not check bank.';}
+}
+
+async function startExam(){
+  if(!selectedPaperId||!currentPaper){alert('Select a paper first.');return;}
+  try{
+    const r=await window.storage.get('rpsc_bank_'+selectedPaperId,true);
+    if(!r){alert('No questions. Ask admin to generate.');return;}
+    const bank=JSON.parse(r.value);
+    currentQs=[...bank.questions].sort(()=>Math.random()-.5);
+    if(!currentQs.length){alert('Bank is empty.');return;}
+  }catch(e){alert('Could not load questions.');return;}
+  answers={};qIdx=0;examActive=true;secsLeft=currentPaper.timeSec;
+  switchTab('test');
+  ['testEmpty','testResult','reviewMode'].forEach(id=>document.getElementById(id).style.display='none');
+  document.getElementById('testActive').style.display='block';
+  document.getElementById('examPaperLabel').textContent=`RPSC 3rd Grade · ${currentPaper.label}`;
+  buildNav();renderQ();startTimer();
+}
+
+function buildNav(){
+  const nav=document.getElementById('ansNav');nav.innerHTML='';let lastSec='';
+  currentQs.forEach((q,i)=>{
+    const sec=q.section||'';
+    if(sec!==lastSec){const lbl=document.createElement('div');lbl.style.cssText='width:100%;font-size:10px;color:#999;text-transform:uppercase;letter-spacing:.05em;margin:5px 0 2px;font-weight:500';lbl.textContent=currentPaper.sections.find(s=>s.key===sec)?.label||sec;nav.appendChild(lbl);lastSec=sec;}
+    const d=document.createElement('div');d.className='dot'+(i===0?' cur':'');d.id='dot-'+i;d.textContent=i+1;d.onclick=()=>{qIdx=i;renderQ();};nav.appendChild(d);
+  });
+}
+
+function renderQ(){
+  const q=currentQs[qIdx];if(!q)return;
+  document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('cur',i===qIdx));
+  const sel=answers[qIdx],d=q.difficulty||'medium',dc=d==='easy'?'be':d==='hard'?'bh':'bm';
+  const secLabel=currentPaper.sections.find(s=>s.key===q.section)?.label||'';
+  document.getElementById('sectionLabel').innerHTML=secLabel?`<div class="sec-div">${secLabel}</div>`:'';
+  document.getElementById('currentQ').innerHTML=`
+    <div style="border:0.5px solid #e0e0d8;border-radius:8px;padding:.875rem">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:4px">
+        <span style="font-size:12px;font-weight:500;color:#666">Q${qIdx+1}/${currentQs.length} · ${q.topic||secLabel}</span>
+        <span class="badge ${dc}">${d}</span>
+      </div>
+      <div style="font-size:15px;line-height:1.5;margin-bottom:10px">${q.question}</div>
+      <div class="opts">${q.options.map((o,oi)=>`<button class="opt${sel===oi?' sel':''}" onclick="pickOpt(${oi})">${String.fromCharCode(65+oi)}. ${o}</button>`).join('')}</div>
+      <p style="font-size:11px;color:#999;margin-top:8px;text-align:center">👁 Answer revealed after submission</p>
+    </div>`;
+  updateProg();
+}
+
+function pickOpt(oi){if(!examActive)return;answers[qIdx]=oi;document.getElementById('dot-'+qIdx).classList.add('sel');renderQ();}
+function updateProg(){const ans=Object.keys(answers).length,tot=currentQs.length;document.getElementById('answeredLabel').textContent=`${ans} / ${tot} answered`;document.getElementById('progFill').style.width=tot?Math.round(ans/tot*100)+'%':'0%';}
+function nextQ(){if(qIdx<currentQs.length-1){qIdx++;renderQ();}}
+function prevQ(){if(qIdx>0){qIdx--;renderQ();}}
+
+function startTimer(){
+  if(timerInt)clearInterval(timerInt);updateTimer();
+  timerInt=setInterval(()=>{secsLeft--;updateTimer();if(secsLeft<=0){clearInterval(timerInt);finishExam(true);}},1000);
+}
+function updateTimer(){
+  const h=Math.floor(secsLeft/3600),m=Math.floor((secsLeft%3600)/60),s=secsLeft%60;
+  document.getElementById('tH').textContent=pad(h);document.getElementById('tM').textContent=pad(m);document.getElementById('tS').textContent=pad(s);
+  const pct=Math.round(secsLeft/currentPaper.timeSec*100),fill=document.getElementById('timeFill');
+  fill.style.width=pct+'%';fill.classList.remove('warn','danger');
+  const nums=document.querySelectorAll('.tnum');
+  if(secsLeft<=600){fill.classList.add('danger');nums.forEach(n=>n.style.color='#991b1b');}
+  else if(secsLeft<=1800){fill.classList.add('warn');nums.forEach(n=>n.style.color='#92400e');}
+  else nums.forEach(n=>n.style.color='#1a1a18');
+}
+
+function confirmSubmit(){
+  const un=currentQs.length-Object.keys(answers).length;
+  if(confirm(`${un>0?`${un} unanswered (0 penalty for skipping).\n\n`:''}Submit and see results?`)) finishExam(false);
+}
+
+async function finishExam(timedOut){
+  examActive=false;clearInterval(timerInt);timerInt=null;
+  const timeUsed=currentPaper.timeSec-secsLeft,hu=Math.floor(timeUsed/3600),mu=Math.floor((timeUsed%3600)/60),su=timeUsed%60;
+  const timeStr=`${pad(hu)}:${pad(mu)}:${pad(su)}`;
+  const tot=currentQs.length;
+  const correct=currentQs.filter((q,i)=>answers[i]===q.correct).length;
+  const wrong=currentQs.filter((q,i)=>answers[i]!==undefined&&answers[i]!==q.correct).length;
+  const skipped=tot-Object.keys(answers).length;
+  const finalMarks=Math.max(0,correct-(wrong*NEG));
+  const pct=Math.round(finalMarks/tot*100);
+  const accuracy=Object.keys(answers).length?Math.round(correct/Object.keys(answers).length*100):0;
+  const sectionBreak={};
+  currentPaper.sections.forEach(s=>{
+    const sqs=currentQs.map((q,i)=>({q,i})).filter(({q})=>q.section===s.key);
+    sectionBreak[s.key]={label:s.label,correct:sqs.filter(({q,i})=>answers[i]===q.correct).length,total:sqs.length};
+  });
+  const now=new Date();
+  const entry={name:profile.name,city:profile.city,paper:selectedPaperId,paperLabel:currentPaper.shortLabel,correct,wrong,skipped,total:tot,finalMarks:Math.round(finalMarks*100)/100,maxMarks:tot,pct,accuracy,timeUsed:timeStr,timedOut,sectionBreak,date:now.toLocaleDateString('en-IN',{day:'2-digit',month:'short'}),time:now.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}),timestamp:Date.now()};
+  myScores.unshift({...entry,answers:{...answers}});
+  document.getElementById('testActive').style.display='none';document.getElementById('testResult').style.display='block';
+  const pass=pct>=45,bg=pass?'#e6f4ea':'#fee2e2',tc=pass?'#1e6b3a':'#991b1b';
+  document.getElementById('resultBanner').style.background=bg;
+  ['resultScore','resultLabel','resultTimeLbl','resultPaperLabel'].forEach(id=>document.getElementById(id).style.color=tc);
+  document.getElementById('resultPaperLabel').textContent=`RPSC 3rd Grade · ${currentPaper.label}`;
+  document.getElementById('resultScore').textContent=`${Math.round(finalMarks*100)/100} / ${tot}`;
+  document.getElementById('resultLabel').textContent=`${pct}% · ${pass?'Good score ✓':'Keep practising'}${timedOut?' · Time expired':''}`;
+  document.getElementById('resultTimeLbl').textContent=timedOut?'Auto-submitted — time ran out':`Submitted in ${timeStr}`;
+  document.getElementById('sbC').textContent=`${correct} × 1 = +${correct}`;
+  document.getElementById('sbW').textContent=`${wrong} × ⅓ = −${Math.round(wrong/3*100)/100}`;
+  document.getElementById('sbSk').textContent=`${skipped} × 0 = 0`;
+  document.getElementById('sbF').textContent=`${Math.round(finalMarks*100)/100} / ${tot}`;
+  document.getElementById('sectionBreak').innerHTML=Object.values(sectionBreak).map(s=>`<div class="sb-row"><span style="color:#666;font-size:12px">${s.label.split('(')[0].trim()}</span><span style="font-weight:500;font-size:12px">${s.correct}/${s.total}</span></div>`).join('');
+  document.getElementById('uploadMsg').textContent='Uploading score...';
+  try{
+    const key=`score:${profile.name.replace(/\s+/g,'_')}_${selectedPaperId}_${Date.now()}`;
+    await window.storage.set(key,JSON.stringify(entry),true);
+    const rank=await getMyRank(pct,selectedPaperId);
+    document.getElementById('uploadMsg').textContent=`Score uploaded! Rank #${rank} for ${currentPaper.shortLabel}.`;
+  }catch(e){document.getElementById('uploadMsg').textContent='Score saved locally.';}
+  renderMyTab();
+}
+
+async function getMyRank(pct,pid){try{const r=await window.storage.list('score:',true);const best={};for(const k of (r?.keys||[])){try{const e=await window.storage.get(k,true);if(e){const d=JSON.parse(e.value);if(d.paper===pid&&(!best[d.name]||d.pct>best[d.name]))best[d.name]=d.pct;}}catch(e){}}return Object.values(best).filter(p=>p>pct).length+1;}catch(e){return '?';}}
+
+function startReview(){document.getElementById('testResult').style.display='none';document.getElementById('reviewMode').style.display='block';reviewIdx=0;setFilter('all');}
+function exitReview(){document.getElementById('reviewMode').style.display='none';document.getElementById('testResult').style.display='block';}
+
+function setFilter(f){
+  reviewFilter=f;
+  filteredIdxs=currentQs.map((_,i)=>i).filter(i=>{if(f==='all')return true;const sel=answers[i],q=currentQs[i];if(f==='ok')return sel===q.correct;if(f==='ng')return sel!==undefined&&sel!==q.correct;if(f==='sk')return sel===undefined;});
+  const counts={ok:currentQs.filter((q,i)=>answers[i]===q.correct).length,ng:currentQs.filter((q,i)=>answers[i]!==undefined&&answers[i]!==q.correct).length,sk:currentQs.filter((_,i)=>answers[i]===undefined).length};
+  document.getElementById('rf-all').textContent=`All (${currentQs.length})`;
+  document.getElementById('rf-ok').textContent=`✓ Correct (${counts.ok})`;
+  document.getElementById('rf-ng').textContent=`✗ Wrong (${counts.ng})`;
+  document.getElementById('rf-sk').textContent=`Skipped (${counts.sk})`;
+  reviewIdx=0;buildReviewNav();renderReviewQ();
+}
+
+function buildReviewNav(){
+  const nav=document.getElementById('reviewNav');nav.innerHTML='';
+  filteredIdxs.forEach((qi,i)=>{const sel=answers[qi],q=currentQs[qi];const cls=sel===undefined?'dot rv-sk':sel===q.correct?'dot rv-ok':'dot rv-ng';const d=document.createElement('div');d.className=cls+(i===reviewIdx?' cur':'');d.id='rdot-'+i;d.textContent=qi+1;d.onclick=()=>{reviewIdx=i;buildReviewNav();renderReviewQ();};nav.appendChild(d);});
+}
+
+function renderReviewQ(){
+  if(!filteredIdxs.length){document.getElementById('reviewQ').innerHTML='<div style="text-align:center;padding:2rem;font-size:14px;color:#666">No questions in this filter.</div>';return;}
+  document.querySelectorAll('[id^="rdot-"]').forEach((d,i)=>d.classList.toggle('cur',i===reviewIdx));
+  const qi=filteredIdxs[reviewIdx],q=currentQs[qi],sel=answers[qi];
+  const d=q.difficulty||'medium',dc=d==='easy'?'be':d==='hard'?'bh':'bm';
+  const status=sel===undefined?'Skipped':sel===q.correct?'Correct ✓':'Wrong ✗';
+  const sc=sel===undefined?'#666':sel===q.correct?'#1e6b3a':'#991b1b';
+  document.getElementById('reviewQ').innerHTML=`
+    <div style="border:0.5px solid #e0e0d8;border-radius:8px;padding:.875rem">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:4px">
+        <span style="font-size:12px;font-weight:500;color:#666">Q${qi+1} · ${q.topic||''}</span>
+        <span style="display:flex;gap:4px;align-items:center"><span style="font-size:12px;font-weight:500;color:${sc}">${status}</span><span class="badge ${dc}">${d}</span></span>
+      </div>
+      <div style="font-size:15px;line-height:1.5;margin-bottom:10px">${q.question}</div>
+      <div class="opts">${q.options.map((o,oi)=>{let cls='opt';if(oi===q.correct)cls+=' rv-ok';else if(oi===sel&&sel!==q.correct)cls+=' rv-ng';const mk=oi===q.correct?'✓ ':oi===sel&&sel!==q.correct?'✗ ':'';return `<div class="${cls}">${mk}${String.fromCharCode(65+oi)}. ${o}</div>`;}).join('')}</div>
+      ${sel!==undefined&&sel!==q.correct?`<div class="neg-box" style="margin-top:8px;padding:7px 10px"><span>Wrong — −⅓ mark deducted.</span></div>`:''}
+      ${sel===undefined?`<div class="warn-box" style="margin-top:8px;padding:7px 10px"><span>Skipped — 0 marks.</span></div>`:''}
+      <div style="margin-top:8px;padding:8px 10px;background:#eff6ff;border-radius:8px;font-size:12px;color:#1e40af;line-height:1.5"><strong>Explanation:</strong> ${q.explanation||'Correct answer: '+String.fromCharCode(65+q.correct)+'.'}</div>
+    </div>`;
+}
+function nextReview(){if(reviewIdx<filteredIdxs.length-1){reviewIdx++;buildReviewNav();renderReviewQ();}}
+function prevReview(){if(reviewIdx>0){reviewIdx--;buildReviewNav();renderReviewQ();}}
+
+async function loadLeaderboard(){
+  const lbList=document.getElementById('lbList'),lbL=document.getElementById('lbLoading');
+  lbL.style.display='block';lbList.innerHTML='';
+  const filter=document.getElementById('lbFilter').value;
+  try{
+    const r=await window.storage.list('score:',true);const all=[];
+    for(const k of (r?.keys||[])){try{const e=await window.storage.get(k,true);if(e)all.push(JSON.parse(e.value));}catch(e){}}
+    const filtered=filter==='all'?all:all.filter(e=>e.paper===filter);
+    const best={};for(const e of filtered){const key=e.name+'_'+(e.paper||'');if(!best[key]||e.pct>best[key].pct)best[key]=e;}
+    const sorted=Object.values(best).sort((a,b)=>b.pct-a.pct||b.finalMarks-a.finalMarks);
+    lbL.style.display='none';
+    if(!sorted.length){lbList.innerHTML='<div style="text-align:center;padding:2rem;font-size:14px;color:#666">No scores yet. Be the first!</div>';return;}
+    const medals=['🥇','🥈','🥉'];
+    lbList.innerHTML=sorted.map((e,i)=>{
+      const isMe=profile&&e.name===profile.name,ini=initials(e.name),col=getColor(e.name);
+      return `<div class="lb-row${isMe?' me':''}">
+        <div style="min-width:24px;text-align:center;font-size:${i<3?'17':'13'}px;${i>=3?'color:#888;font-weight:500':''}">${i<3?medals[i]:'#'+(i+1)}</div>
+        <div style="width:30px;height:30px;border-radius:50%;background:${col}22;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:${col};flex-shrink:0">${ini}</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:13px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${e.name}${isMe?' <span class="badge bi" style="font-size:10px">You</span>':''} <span class="badge bi" style="font-size:10px">${e.paperLabel}</span>${e.timedOut?` <span class="badge bm" style="font-size:10px">auto</span>`:''}</div>
+          <div style="font-size:11px;color:#888">${e.city} · ${e.correct}✓ ${e.wrong}✗ · ${e.timeUsed||'—'}</div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-size:15px;font-weight:500;color:${e.pct>=45?'#1e6b3a':'#991b1b'}">${Math.round(e.finalMarks*100)/100}/${e.maxMarks}</div>
+          <div style="font-size:11px;color:#888">${e.pct}% · ${e.date}</div>
+        </div>
+      </div>`;
+    }).join('')+`<div style="font-size:12px;color:#bbb;text-align:center;padding:.75rem 0">${sorted.length} entries · Best per person per paper</div>`;
+  }catch(e){lbL.style.display='none';lbList.innerHTML='<div style="text-align:center;padding:1.5rem;font-size:14px;color:#666">Could not load.</div>';}
+}
+
+function renderMyTab(){
+  if(!profile)return;
+  const col=getColor(profile.name);
+  document.getElementById('myAvatar').textContent=initials(profile.name);
+  document.getElementById('myAvatar').style.cssText+=`;background:${col}22;color:${col}`;
+  document.getElementById('myNameDisp').textContent=profile.name;
+  document.getElementById('myCityDisp').textContent=profile.city;
+  if(!myScores.length){document.getElementById('myStats').innerHTML='<div class="stat"><div class="sval">0</div><div class="slbl">Tests</div></div><div class="stat"><div class="sval">—</div><div class="slbl">Best marks</div></div><div class="stat"><div class="sval">—</div><div class="slbl">Best %</div></div>';document.getElementById('myHistory').innerHTML='<div style="text-align:center;padding:1.5rem;font-size:14px;color:#666">No tests yet.</div>';return;}
+  const bm=Math.max(...myScores.map(h=>h.finalMarks)),bp=Math.max(...myScores.map(h=>h.pct));
+  document.getElementById('myStats').innerHTML=`<div class="stat"><div class="sval">${myScores.length}</div><div class="slbl">Tests</div></div><div class="stat"><div class="sval" style="color:#1e6b3a">${Math.round(bm*100)/100}</div><div class="slbl">Best marks</div></div><div class="stat"><div class="sval" style="color:#1e6b3a">${bp}%</div><div class="slbl">Best %</div></div>`;
+  document.getElementById('myHistory').innerHTML=myScores.map(h=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:0.5px solid #e0e0d8"><div><div style="font-size:13px;font-weight:500">${h.paperLabel} · ${h.date} ${h.time}${h.timedOut?' <span class="badge bm" style="font-size:10px">auto</span>':''}</div><div style="font-size:12px;color:#888">${h.correct}✓ ${h.wrong}✗ ${h.skipped} skip · −${Math.round(h.wrong/3*100)/100} · ${h.timeUsed}</div></div><div style="text-align:right"><div style="font-size:15px;font-weight:500;color:${h.pct>=45?'#1e6b3a':'#991b1b'}">${Math.round(h.finalMarks*100)/100}/${h.maxMarks}</div><div style="font-size:11px;color:#888">${h.pct}%</div></div></div>`).join('');
+}
+
+async function loadAdminStatus(){
+  const el=document.getElementById('adminBankStatus');if(!el)return;
+  const html=await Promise.all(Object.entries(PAPERS).map(async([pid,p])=>{
+    let count=0,date='—';
+    try{const r=await window.storage.get('rpsc_bank_'+pid,true);if(r){const b=JSON.parse(r.value);count=b.questions?.length||0;date=b.date||'—';}}catch(e){}
+    return `<div class="stat"><div class="sval" style="font-size:16px">${p.emoji} ${count}</div><div class="slbl">${p.shortLabel}</div><div style="font-size:10px;color:#bbb;margin-top:2px">${date}</div></div>`;
+  }));
+  el.innerHTML=html.join('');
+}
+
+async function adminGenerate(){
+  const btn=document.getElementById('generateBtn');btn.disabled=true;
+  const pid=document.getElementById('genPaper').value,paper=PAPERS[pid];
+  document.getElementById('genProgress').style.display='block';document.getElementById('genProgress').innerHTML='';
+  let fc='';const file=document.getElementById('syllabusFile').files[0];
+  if(file)fc=await new Promise(res=>{const r=new FileReader();r.onload=e=>res(e.target.result);r.readAsText(file);});
+  const pasted=document.getElementById('syllabusText').value.trim();
+  const content=(fc+'\n'+pasted).trim();
+  const contentHint=content?`Reference this uploaded content:\n${content.slice(0,2000)}\n\nAlso cover:`:'Cover:';
+  const allQs=[];
+
+  for(let si=0;si<paper.sections.length;si++){
+    const sec=paper.sections[si];
+    const row=document.createElement('div');row.className='chunk';
+    row.innerHTML=`<span><span class="sp"></span>${sec.label} (${sec.count} Qs)...</span><span>${si+1}/${paper.sections.length}</span>`;
+    document.getElementById('genProgress').appendChild(row);
+
+    const prompt=`You are an expert question setter for RPSC (Rajasthan Public Service Commission) Grade 3 Teacher recruitment exam.
+
+${contentHint}
+Section: ${sec.label}
+Topics: ${sec.topics.join(' | ')}
+
+Generate exactly ${sec.count} MCQ questions.
+
+STRICT RULES — competition level harder than real RPSC 3rd Grade exam:
+1. Difficulty: 30% easy, 45% medium, 25% hard
+2. Rajasthan GK: specific facts about Rajasthan — precise names, dates, places, schemes, awards
+3. Language questions: test grammar rules with application, not just definitions
+4. Maths: include calculation-based word problems, not just formula recall
+5. Science: test application of concepts and experimental reasoning
+6. SST: test analysis, map reading, historical reasoning, multi-perspective thinking
+7. Pedagogy questions: realistic classroom scenarios, not just textbook definitions
+8. All 4 options must be plausible — NO obviously wrong distractors
+9. Each question has exactly ONE correct answer
+10. Avoid trivial questions — this is competitive selection exam
+
+Return ONLY valid JSON array, no markdown:
+[{"question":"full question text","options":["option A","option B","option C","option D"],"correct":0,"difficulty":"easy|medium|hard","topic":"specific topic","section":"${sec.key}","explanation":"explanation with the key fact or concept"}]`;
+
+    try{
+      const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:5000,messages:[{role:'user',content:prompt}]})});
+      const data=await res.json();
+      if(data.error)throw new Error(data.error.message);
+      const raw=(data.content||[]).map(b=>b.text||'').join('');
+      const s=raw.indexOf('['),e=raw.lastIndexOf(']');
+      const batch=JSON.parse(raw.slice(s,e+1));
+      allQs.push(...batch);
+      row.className='chunk done';row.innerHTML=`<span>✓ ${sec.label} — ${batch.length} questions done</span><span>✓</span>`;
+    }catch(err){row.className='chunk fail';row.innerHTML=`<span>✗ ${sec.label} failed — ${err.message?.slice(0,50)}</span><span>✗</span>`;}
+  }
+
+  const saveRow=document.createElement('div');saveRow.className='chunk';saveRow.innerHTML=`<span><span class="sp"></span>Publishing ${allQs.length} questions...</span>`;
+  document.getElementById('genProgress').appendChild(saveRow);
+  try{
+    const today=new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'});
+    await window.storage.set('rpsc_bank_'+pid,JSON.stringify({questions:allQs,date:today,paper:pid,generatedBy:profile.name}),true);
+    saveRow.className='chunk done';saveRow.innerHTML=`<span>✓ Published! ${allQs.length} questions live for all members</span><span>✓</span>`;
+    loadAdminStatus();if(selectedPaperId===pid)checkBankForPaper(pid);
+  }catch(e){saveRow.className='chunk fail';saveRow.innerHTML=`<span>✗ Save failed. Try again.</span>`;}
+  btn.disabled=false;btn.innerHTML='✦ Generate & publish ↗';
+}
+
+async function clearScores(){if(!confirm('Delete all scores from leaderboard?'))return;try{const r=await window.storage.list('score:',true);for(const k of (r?.keys||[]))await window.storage.delete(k,true);alert('All scores cleared.');}catch(e){alert('Failed.');}}
+async function clearBank(){if(!confirm('Delete all question banks?'))return;try{for(const pid of Object.keys(PAPERS))await window.storage.delete('rpsc_bank_'+pid,true);alert('All banks cleared.');loadAdminStatus();}catch(e){alert('Failed.');}}
+</script>
+</body>
+</html>
